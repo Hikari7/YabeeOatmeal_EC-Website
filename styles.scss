@@ -1,0 +1,129 @@
+//Common
+
+$tablet: 768px;
+$desktop: 1024px;
+
+@mixin desktop {
+  @media (min-width: #{$desktop}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$tablet}) {
+    @content;
+  }
+}
+
+html {
+  font: size 62.5%;
+}
+
+body {
+  font-family: "Ibarra Real Nova", serif;
+
+  li {
+    list-style: none;
+  }
+}
+
+//header
+
+.top {
+  height: 100vh;
+  width: 100%;
+  //   justify-content: center;
+  //   align-items: center;
+  //   flex-direction: column;
+  //   text-align: center;
+}
+
+header {
+  margin: 0 auto;
+  padding: 16px;
+
+  .header_desktop {
+    display: none;
+  }
+
+  @include tablet {
+    .header_desktop {
+      width: 86%;
+      font-size: 1.4rem;
+      display: block;
+      margin: 12px auto;
+
+      h1 {
+        padding-top: 12px;
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      ul {
+        display: flex;
+      }
+
+      li {
+        margin-right: 16px;
+        cursor: pointer;
+      }
+
+      li:hover {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  @include desktop {
+    .header_desktop {
+      width: 86%;
+      font-size: 1.4rem;
+      display: block;
+      margin: 24px auto;
+      nav {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      ul {
+        display: flex;
+      }
+
+      li {
+        margin-right: 16px;
+        cursor: pointer;
+      }
+
+      li:hover {
+        opacity: 0.5;
+      }
+    }
+  }
+}
+
+//main
+
+//hero
+.hero {
+  //   outline: 1px solid green;
+  width: 100%;
+  align-items: center;
+
+  h1 {
+    // padding-top: 1em;
+    font-size: 3.2em;
+    text-align: center;
+  }
+
+  .hero_img {
+    text-align: center;
+  }
+
+  img {
+    width: 40%;
+    height: 40%;
+  }
+}
