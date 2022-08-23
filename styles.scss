@@ -37,6 +37,16 @@ li {
 p {
   line-height: 1.7;
 }
+
+a {
+  text-decoration: none;
+  color: #282828;
+}
+
+h1,
+h2 {
+  font-family: "PT Serif", serif;
+}
 //header
 
 .top {
@@ -99,6 +109,8 @@ header {
   align-items: center;
 
   h1 {
+    position: relative;
+    z-index: 1;
     font-size: 3.2em;
     text-align: center;
     margin-top: 80px;
@@ -106,20 +118,50 @@ header {
 
   .hero_img {
     text-align: center;
+    margin-top: 80px;
   }
 
   img {
-    margin-top: 100px;
-    width: 70%;
-    height: 70%;
+    width: 80%;
+    height: 80%;
+    animation: img 15s linear infinite;
+  }
+
+  @keyframes img {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
   }
 
   @include tablet {
     h1 {
       margin-top: 0;
     }
+
+    .hero_img {
+      margin-top: 0;
+    }
+
     img {
       margin-top: 0;
+      width: 60%;
+      height: 60%;
+    }
+  }
+
+  @include desktop {
+    h1 {
+      margin-top: 0;
+    }
+
+    .hero_img {
+      margin-top: 0;
+    }
+
+    img {
       width: 40%;
       height: 40%;
     }
@@ -131,6 +173,8 @@ header {
 .feature {
   margin: 24px 0;
   background-color: #ffeddb;
+  position: relative;
+  z-index: 1;
 }
 
 .feature_container {
@@ -140,7 +184,7 @@ header {
 
     h2 {
       text-align: center;
-      margin: 36px;
+      margin: 36px 0;
     }
 
     p {
@@ -201,6 +245,9 @@ header {
 .testimonial {
   @include center();
 
+  p {
+    line-height: 1.7;
+  }
   h2 {
     text-align: center;
     margin: 36px;
@@ -283,6 +330,8 @@ header {
 
     .more:hover {
       opacity: 0.5;
+      background-color: #282828;
+      color: #fff;
     }
   }
   img {
@@ -307,10 +356,9 @@ header {
   }
 
   .summer_sale {
+    padding-top: 12px;
     width: 50%;
     display: block;
-    align-items: center;
-    // height: 100%;
     justify-content: center;
   }
 }
@@ -319,6 +367,6 @@ header {
 footer {
   @include center();
   text-align: center;
-  padding: 16px;
-  font-size: 12px;
+  padding: 24px;
+  font-size: 10px;
 }
