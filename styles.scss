@@ -25,13 +25,17 @@ html {
 }
 
 body {
-  font-family: "Ibarra Real Nova", serif;
-
-  li {
-    list-style: none;
-  }
+  // font-family: "Ibarra Real Nova", serif;
+  font-family: "Junge", serif;
 }
 
+li {
+  list-style: none;
+}
+
+p {
+  line-height: 1.7;
+}
 //header
 
 .top {
@@ -135,23 +139,31 @@ header {
 
     h2 {
       text-align: center;
+      margin: 36px;
     }
 
     p {
       padding-top: 24px;
+      font-size: 1rem;
     }
   }
 
   img {
     width: 100%;
     height: 20rem;
-    border-radius: 10%;
-    padding: 24px;
+    border-radius: 20%;
+    padding: 36px;
+    object-fit: cover;
   }
 
   @include tablet {
     display: flex;
     align-items: center;
+    width: 80%;
+
+    .feature {
+      padding: 30px;
+    }
 
     .desc {
       width: 50%;
@@ -165,6 +177,79 @@ header {
       height: 40%;
       margin: 24px auto;
       justify-content: center;
+    }
+
+    .desc h2 {
+      font-size: 2.4rem;
+      margin-top: 0;
+    }
+    .desc p {
+      font-size: 1.2rem;
+      padding: 0;
+    }
+
+    img {
+      padding: 12px;
+    }
+  }
+}
+
+//testimonial
+
+.testimonial {
+  @include center();
+
+  h2 {
+    text-align: center;
+    margin: 36px;
+  }
+
+  .tes_ppl {
+    text-align: center;
+  }
+
+  .test_card {
+    margin: 24px auto;
+    width: 75%;
+    background-color: #e3b7a0;
+    padding: 42px 24px;
+    border-radius: 10%;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  h3,
+  h4 {
+    margin-top: 8px;
+  }
+
+  h4 {
+    color: #fff;
+  }
+
+  img {
+    width: 25%;
+    border-radius: 50%;
+  }
+
+  @include tablet {
+    h2 {
+      font-size: 2.4rem;
+    }
+
+    .test_3ppl {
+      display: flex;
+    }
+
+    p {
+      font-size: 1rem;
+      text-align: left;
+    }
+
+    h3 {
+      font-size: 1.4rem;
     }
   }
 }
