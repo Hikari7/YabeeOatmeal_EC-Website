@@ -1,0 +1,71 @@
+html {
+  font: size 62.5%;
+}
+
+body {
+  font-family: "Junge", serif;
+  color: #282828;
+}
+
+li {
+  list-style: none;
+}
+
+p {
+  line-height: 1.7;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+h1,
+h2 {
+  font-family: "PT Serif", serif;
+  color: #4A403A;
+}
+
+.top {
+  height: 100vh;
+  width: 100%;
+}
+
+header {
+  margin: 0 auto;
+  padding: 16px;
+}
+header .header_desktop {
+  display: none;
+}
+@media (min-width: 768px) {
+  header .header_desktop {
+    width: 86%;
+    font-size: 1.4rem;
+    display: block;
+    margin: 12px auto;
+  }
+  header .header_desktop h1 {
+    padding-top: 12px;
+  }
+  header .header_desktop nav {
+    display: flex;
+    justify-content: space-between;
+  }
+  header .header_desktop ul {
+    display: flex;
+  }
+  header .header_desktop li {
+    margin-right: 16px;
+    cursor: pointer;
+  }
+  header .header_desktop li:hover {
+    opacity: 0.5;
+  }
+}
+@media (min-width: 1024px) {
+  header .header_desktop {
+    font-size: 1.4rem;
+    margin: 24px auto;
+  }
+}/*# sourceMappingURL=shops.css.map */
