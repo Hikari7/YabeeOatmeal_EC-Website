@@ -17,12 +17,13 @@ p {
 
 a {
   text-decoration: none;
-  color: #282828;
+  color: #333;
 }
 
 h1,
 h2 {
   font-family: "PT Serif", serif;
+  color: #4A403A;
 }
 
 .top {
@@ -87,8 +88,8 @@ header .header_desktop {
 .hero img {
   width: 80%;
   height: 80%;
-  -webkit-animation: img 15s linear infinite;
-          animation: img 15s linear infinite;
+  -webkit-animation: img 17s linear infinite;
+          animation: img 17s linear infinite;
 }
 @-webkit-keyframes img {
   0% {
@@ -134,9 +135,10 @@ header .header_desktop {
 
 .feature {
   margin: 24px 0;
-  background-color: #ffeddb;
+  background: linear-gradient(70deg, #ffeddb, #EDCDBB);
   position: relative;
   z-index: 1;
+  border-radius: 20% 10%;
 }
 
 .feature_container {
@@ -202,11 +204,11 @@ header .header_desktop {
   margin: 0 auto;
 }
 .testimonial p {
-  line-height: 1.7;
+  line-height: 1.5;
 }
 .testimonial h2 {
   text-align: center;
-  margin: 36px;
+  margin: 42px;
 }
 .testimonial .tes_ppl {
   text-align: center;
@@ -217,13 +219,21 @@ header .header_desktop {
   background-color: #e3b7a0;
   padding: 42px 24px;
   border-radius: 10%;
+  box-shadow: 0 20px 30px 0 rgba(0, 0, 0, 0.12), 0 2px 3px 0 rgba(0, 0, 0, 0.22);
+  transition: 0.3s;
+}
+.testimonial .test_card:hover {
+  box-shadow: 0 30px 30px -5px rgba(0, 0, 0, 0.15), 0 0 5px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
 }
 .testimonial p {
-  font-size: 1rem;
+  font-size: 0.8rem;
+  display: block;
+  padding: 16px;
 }
 .testimonial h3,
 .testimonial h4 {
-  margin-top: 8px;
+  margin-top: 16px;
 }
 .testimonial h4 {
   color: #fff;
@@ -260,6 +270,18 @@ header .header_desktop {
 .sale .summer_sale h2 {
   padding-top: 16px;
   text-align: center;
+  position: relative;
+}
+.sale .summer_sale .stripe:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  right: 50%;
+  transform: translate(-50%, -50%);
+  bottom: -10%;
+  width: 30%;
+  height: 7px;
+  background: repeating-linear-gradient(-45deg, rgb(213, 235, 135), rgb(213, 235, 135) 2px, white 2px, white 4px);
 }
 .sale .summer_sale .more {
   display: block;
@@ -268,6 +290,7 @@ header .header_desktop {
   background-color: #fff;
   padding: 16px 24px;
   border: 0.5px solid #282828;
+  border-radius: 10px;
 }
 .sale .summer_sale .more:hover {
   opacity: 0.5;
@@ -298,6 +321,14 @@ header .header_desktop {
     width: 50%;
     display: block;
     justify-content: center;
+  }
+  .summer_sale h2 {
+    font-size: 1.9em;
+    padding-top: 24px;
+    padding: 0.3em;
+  }
+  .summer_sale .stripe:after {
+    bottom: 0;
   }
 }
 footer {
