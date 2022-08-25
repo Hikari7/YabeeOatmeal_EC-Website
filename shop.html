@@ -15,11 +15,33 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
     <link rel="stylesheet" href="shop.css" />
     <title>shopping</title>
   </head>
   <body>
     <header>
+      <div class="header_phone">
+        <!-- before it's opened -->
+        <div class="header_open">
+          <span class="material-symbols-outlined" id="open"> menu </span>
+        </div>
+        <!-- after it's opened -->
+        <div class="overlay">
+          <span class="material-symbols-outlined close_btn" id="close">
+            close
+          </span>
+          <nav>
+            <ul>
+              <li><a href="./index.html">Home</a></li>
+              <li><a href="./shop.html">Shop</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
       <div class="header_desktop">
         <nav>
           <a href="./index.html"><div class="title">Yabee</div></a>
@@ -83,5 +105,5 @@
     </main>
   </body>
   <footer>&copy;Yabee OatMeal</footer>
-  <script src="index.js"></script>
+  <script src="main.js"></script>
 </html>
