@@ -61,6 +61,7 @@ header .header_desktop {
   }
   header .header_desktop li:hover {
     opacity: 0.5;
+    transition: 0.5s;
   }
 }
 @media (min-width: 1024px) {
@@ -296,6 +297,7 @@ header .header_desktop {
   opacity: 0.5;
   background-color: #282828;
   color: #fff;
+  transition: 0.5s;
 }
 .sale img {
   display: block;

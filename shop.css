@@ -28,6 +28,14 @@ h2 {
   text-align: center;
 }
 
+h2 {
+  margin: 16px;
+}
+
+li {
+  line-height: 1.4;
+}
+
 header {
   margin: 0 auto;
   padding: 16px;
@@ -82,36 +90,85 @@ header .header_desktop {
 }
 .container {
   margin: 0 auto;
-  outline: 1px blue solid;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
 }
 
-.wrapper {
-  width: 300px;
-  outline: 1px red solid;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+@media (min-width: 768px) {
+  .wrapper {
+    display: flex;
+  }
 }
-.wrapper img {
+.list {
+  margin-top: 24px;
+}
+
+img {
   display: block;
-  margin: 0 auto;
+  margin: 36px auto 0;
   width: 200px;
-  height: 150px;
+  height: 220px;
+  border-radius: 10px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  box-shadow: 0 20px 30px 0 rgba(0, 0, 0, 0.12), 0 2px 3px 0 rgba(0, 0, 0, 0.22);
 }
-.wrapper li {
+
+.list h2 {
+  margin: 24px;
+}
+
+.desc {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.list li {
   text-align: left;
+  font-family: "Roboto", sans-serif;
+  font-size: 0.9rem;
 }
-.wrapper .price {
+
+.price {
+  margin-top: 24px;
   font-size: 1.8rem;
 }
-.wrapper .cart {
+
+.current_price {
+  margin-top: 24px;
+  color: red;
+  font-size: 1.8rem;
+  position: relative;
+}
+
+.current_price::before {
+  content: "$12.9";
+  font-size: 0.9rem;
+  text-decoration: line-through;
+  color: #333;
+  position: absolute;
+  left: 8.6em;
+  top: 30%;
+}
+
+.cart {
   text-align: center;
   display: block;
-  margin: 0 auto;
+  margin: 16px auto;
   padding: 16px 24px;
   background-color: #be6546;
   color: #fff;
+  border-radius: 10px;
+}
+
+.cart:hover {
+  opacity: 0.5;
+  transition: 0.5s;
+}
+
+footer {
+  text-align: center;
+  padding: 80px;
+  font-size: 10px;
 }/*# sourceMappingURL=shop.css.map */
