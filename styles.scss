@@ -46,7 +46,7 @@ a {
 h1,
 h2 {
   font-family: "PT Serif", serif;
-  color: #4A403A;
+  color: #4a403a;
 }
 //header
 
@@ -55,15 +55,107 @@ h2 {
   width: 100%;
 }
 
+main {
+  position: relative;
+}
+
 header {
-  margin: 0 auto;
+  margin: 24px auto;
   padding: 16px;
+
+  // header phone
+  .header_phone {
+    text-align: right;
+  }
+  .material-symbols-outlined {
+    font-size: 32px;
+  }
+
+
+  .header_phone:hover {
+    cursor: pointer;
+  }
+
+  .overlay {
+    position: fixed; //固定表示
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    text-align: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.7s;
+    background: rgba(255, 255, 255, 0.95);
+    z-index: 3;
+  }
+
+  //showしたらoverlayがつけ外しされる
+  .overlay.show {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .unshow {
+    opacity: 0;
+  }
+
+  .overlay #close {
+    position: absolute;
+    top: 32px;
+    right: 32px;
+    font-size: 32px;
+    cursor: pointer;
+  }
+
+  .overlay #close:hover {
+    color: #333;
+  }
+
+  .overlay li {
+    padding-top: 12px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.3s, transform 0.3s;
+  }
+
+  .overlay li:hover {
+    color: #333;
+  }
+  .overlay.show li:nth-child(1) {
+    transition-delay: 0.2s;
+  }
+  .overlay.show li:nth-child(2) {
+    transition-delay: 0.3s;
+  }
+  .overlay.show li:nth-child(3) {
+    transition-delay: 0.4s;
+  }
+  .overlay.show li:nth-child(4) {
+    transition-delay: 0.5s;
+  }
+
+  .overlay.show li {
+    opacity: 1;
+    transform: none;
+  }
+
+  .overlay ul {
+    margin-top: 10%;
+  }
+
+  // --------------------------------------------------------
 
   .header_desktop {
     display: none;
   }
 
   @include tablet {
+    .header_phone {
+      display: none;
+    }
     .header_desktop {
       width: 86%;
       font-size: 1.4rem;
@@ -90,7 +182,7 @@ header {
 
       li:hover {
         opacity: 0.5;
-        transition: 0.5s
+        transition: 0.5s;
       }
     }
   }
@@ -120,7 +212,7 @@ header {
 
   .hero_img {
     text-align: center;
-    margin-top: 80px;
+    margin-top: 60px;
   }
 
   img {
@@ -175,7 +267,7 @@ header {
 .feature {
   margin: 24px 0;
   // background-color: #ffeddb;
-  background: linear-gradient(70deg, #ffeddb, #EDCDBB);
+  background: linear-gradient(70deg, #ffeddb, #edcdbb);
   position: relative;
   z-index: 1;
   border-radius: 20% 10%;
@@ -368,7 +460,7 @@ header {
       opacity: 0.5;
       background-color: #282828;
       color: #fff;
-      transition: 0.5s
+      transition: 0.5s;
     }
   }
   img {
