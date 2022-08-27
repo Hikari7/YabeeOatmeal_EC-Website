@@ -1,6 +1,6 @@
 //Common
 
-$tablet: 768px;
+$tablet: 700px;
 $desktop: 1024px;
 
 @mixin desktop {
@@ -70,7 +70,6 @@ header {
   .material-symbols-outlined {
     font-size: 32px;
   }
-
 
   .header_phone:hover {
     cursor: pointer;
@@ -190,7 +189,7 @@ header {
   @include desktop {
     .header_desktop {
       font-size: 1.4rem;
-      margin: 24px auto;
+      margin: 0 auto;
     }
   }
 }
@@ -270,11 +269,15 @@ header {
   background: linear-gradient(70deg, #ffeddb, #edcdbb);
   position: relative;
   z-index: 1;
-  border-radius: 20% 10%;
+  border-radius: 20% 10% 20% 10%;
 }
 
 .feature_container {
   @include center();
+
+  margin: 36px auto;
+  padding: 36px;
+
   .desc {
     padding: 24px;
 
@@ -351,6 +354,16 @@ header {
 
   .tes_ppl {
     text-align: center;
+  }
+
+  @keyframes animation_ppl {
+    from {
+      transform: translateX(0%);
+    }
+
+    to {
+      transform: translateY(100%);
+    }
   }
 
   .test_card {

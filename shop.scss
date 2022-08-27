@@ -1,6 +1,6 @@
 //Common
 
-$tablet: 768px;
+$tablet: 700px;
 $desktop: 1024px;
 
 @mixin tablet {
@@ -22,6 +22,7 @@ html {
 body {
   font-family: "Junge", serif;
   color: #282828;
+  background-color: #ffeddb;
 }
 
 li {
@@ -144,6 +145,9 @@ header {
   }
 
   @include tablet {
+    .header_phone {
+      display: none;
+    }
     .header_desktop {
       width: 86%;
       font-size: 1.4rem;
@@ -186,29 +190,33 @@ header {
   }
 }
 
-@media (min-width: 2100px) {
-  .shapedividers_com-5066::before {
-    background-size: 126% calc(2vw + 400px);
-  }
-}
-
-@media (min-width: 2100px) {
-  .shapedividers_com-8833::before {
-    background-size: 100% calc(2vw + 90px);
-  }
-}
-
 //main
 
 .container {
-  margin: 0 auto;
+  width: 85%;
+  margin: 56px auto;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  background-color: #fff;
+  border-radius: 10px;
 }
 
 .list {
   margin-top: 24px;
+  animation-name: animation_list;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+}
+
+@keyframes animation_list {
+  from {
+    transform: translateY(10%);
+  }
+
+  to {
+    transform: translateY(0%);
+  }
 }
 
 img {
@@ -266,12 +274,34 @@ img {
   border-radius: 10px;
 }
 
+.cart:last-child {
+  margin-bottom: 50px;
+}
+
 .cart:hover {
   opacity: 0.5;
   transition: 0.5s;
+  animation-name: animation_cart;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+}
+
+@keyframes animation_cart {
+  from {
+    transform: translateY(20%);
+  }
+
+  to {
+    transform: translateY(0%);
+  }
 }
 
 @include tablet() {
+
+  .container {
+    width: 85%;
+  }
+
   .wrapper {
     display: flex;
   }
@@ -290,6 +320,10 @@ img {
   }
 }
 @include desktop() {
+  .container {
+    width: 95%;
+  }
+
   img {
     width: 250px;
     height: 270px;

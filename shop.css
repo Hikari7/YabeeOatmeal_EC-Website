@@ -5,6 +5,7 @@ html {
 body {
   font-family: "Junge", serif;
   color: #282828;
+  background-color: #ffeddb;
 }
 
 li {
@@ -112,7 +113,10 @@ header .overlay.show li {
 header .overlay ul {
   margin-top: 10%;
 }
-@media (min-width: 768px) {
+@media (min-width: 700px) {
+  header .header_phone {
+    display: none;
+  }
   header .header_desktop {
     width: 86%;
     font-size: 1.4rem;
@@ -147,27 +151,43 @@ header .overlay ul {
   }
 }
 
-@media (min-width: 2100px) {
-  .shapedividers_com-5066::before {
-    background-size: 126% calc(2vw + 400px);
-  }
-}
-@media (min-width: 2100px) {
-  .shapedividers_com-8833::before {
-    background-size: 100% calc(2vw + 90px);
-  }
-}
 .container {
-  margin: 0 auto;
+  width: 85%;
+  margin: 56px auto;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  background-color: #fff;
+  border-radius: 10px;
 }
 
 .list {
   margin-top: 24px;
+  -webkit-animation-name: animation_list;
+          animation-name: animation_list;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
 }
 
+@-webkit-keyframes animation_list {
+  from {
+    transform: translateY(10%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes animation_list {
+  from {
+    transform: translateY(10%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
 img {
   display: block;
   margin: 36px auto 0;
@@ -226,12 +246,42 @@ img {
   border-radius: 10px;
 }
 
+.cart:last-child {
+  margin-bottom: 50px;
+}
+
 .cart:hover {
   opacity: 0.5;
   transition: 0.5s;
+  -webkit-animation-name: animation_cart;
+          animation-name: animation_cart;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
 }
 
-@media (min-width: 768px) {
+@-webkit-keyframes animation_cart {
+  from {
+    transform: translateY(20%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes animation_cart {
+  from {
+    transform: translateY(20%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+@media (min-width: 700px) {
+  .container {
+    width: 85%;
+  }
   .wrapper {
     display: flex;
   }
@@ -247,6 +297,9 @@ img {
   }
 }
 @media (min-width: 1024px) {
+  .container {
+    width: 95%;
+  }
   img {
     width: 250px;
     height: 270px;
