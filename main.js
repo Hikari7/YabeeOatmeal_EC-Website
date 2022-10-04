@@ -70,6 +70,15 @@ for (let i = 0; i < addBtns.length; i++) {
   });
 }
 
+//ページをリフレッシュしてもカートの数字を保存する
+function onLoadCartNumbers() {
+  let productNumbers = localStorage.getItem("cartNumbers");
+
+  if (productNumbers) {
+    document.querySelector(".cartIcon_amount").textContent = productNumbers;
+  }
+}
+
 function cartNumbers() {
   //データを取得
   let productNumbers = localStorage.getItem("cartNumbers");
@@ -89,6 +98,9 @@ function cartNumbers() {
     document.querySelector(".cartIcon_amount").textContent = 1;
   }
 }
+
+//Local Stargeに保存された情報をカートの表示にも保存させる(1回呼び出されないとinvokeされないので、下の方に関数呼び出す)
+onLoadCartNumbers();
 
 //----------------------------------------------------
 
