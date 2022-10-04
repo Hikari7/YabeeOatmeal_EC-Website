@@ -15,14 +15,6 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     />
-    <!-- <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
-      rel="stylesheet"
-    /> -->
-    <!-- <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
-    /> -->
     <link rel="stylesheet" href="shop.css" />
     <title>shopping</title>
   </head>
@@ -41,11 +33,11 @@
           <nav>
             <ul>
               <li><a href="./index.html">Home</a></li>
-              <!-- <li><a href="./shop.html">Shop</a></li> -->
-              <li>
+              <li class="cart_icon">
                 <span class="material-symbols-outlined shopping_cart">
-                  shopping_cart
-                </span>
+                  shopping_cart</span
+                >
+                <span class="cart_amount">0</span>
               </li>
             </ul>
           </nav>
@@ -57,12 +49,12 @@
           <ul>
             <a href="./index.html"><li>Home</li></a>
             <li><a href="./index.html">Feature</a></li>
-            <!-- <li><a href="#shop">Shop</a></li> -->
-            <li>
-              <a class="material-symbols-outlined shopping_cart">
+            <div class="cart_icon">
+              <span class="material-symbols-outlined shopping_cart">
                 shopping_cart
-              </a>
-            </li>
+                <span class="cartIcon_amount">0</span>
+              </span>
+            </div>
           </ul>
         </nav>
       </div>
@@ -82,8 +74,15 @@
             <li>Superfood and an extremely healthy whole grain to consume</li>
             <li>Allergen information: preservative_free</li>
           </ul>
-          <p class="price">$9.99</p>
-          <button class="cart">Add to Cart</button>
+          <div class="prices">
+            <p class="price">$9.99</p>
+            <div class="amount_value">
+              <span class="amount_decrease">-</span>
+              <span class="amount">0</span>
+              <span class="amount_increase">+</span>
+            </div>
+          </div>
+          <button class="add_cart">Add to Cart</button>
         </div>
         <div class="list">
           <img src="./imgs/jocelyn-morales-GuJ8KO4LywI-unsplash.jpg" alt="" />
@@ -97,8 +96,15 @@
             <li>Superfood and an extremely healthy whole grain to consume</li>
             <li>Allergen information: preservative_free</li>
           </ul>
-          <p class="current_price">$7.99</p>
-          <button class="cart">Add to Cart</button>
+          <div class="prices">
+            <p class="price">$7.99</p>
+            <div class="amount_value">
+              <span class="amount">-</span>
+              <span class="amount">0</span>
+              <span class="amount">+</span>
+            </div>
+          </div>
+          <button class="add_cart">Add to Cart</button>
         </div>
         <div class="list">
           <img src="./imgs/jocelyn-morales-GuJ8KO4LywI-unsplash.jpg" alt="" />
@@ -112,32 +118,33 @@
             <li>Superfood and an extremely healthy whole grain to consume</li>
             <li>Allergen information: preservative_free</li>
           </ul>
-          <p class="price">$9.99</p>
-          <button class="cart" id="buy">Add to Cart</button>
-        </div>
-
-        <div class="modal"></div>
-        <div class="modal_container">
-          <span class="material-symbols-outlined close_btn closes">
-            close
-          </span>
-          <div class="modal_message">
-            <h3>Added the item!</h3>
-            <p>Plaase check your cart</p>
-            <button class="go_cart">Go to the cart</button>
+          <div class="prices">
+            <p class="price">$9.99</p>
+            <div class="amount_value">
+              <span class="amount">-</span>
+              <span class="amount">0</span>
+              <span class="amount">+</span>
+            </div>
           </div>
-        </div>
-
-        <div class="cart_mordal"></div>
-        <div class="cart_container">
-          <span class="material-symbols-outlined close_btn closes">
-            close
-          </span>
-          <div class="cart_message">
-            <h3>This is the window to see what you have in your cart</h3>
-          </div>
+          <button class="add_cart" id="buy">Add to Cart</button>
         </div>
       </div>
+      <div class="modal"></div>
+      <div class="modal_container">
+        <span class="material-symbols-outlined close_btn closes"> close </span>
+        <div class="modal_message">
+          <h3>Added the item!</h3>
+          <p>Plaase check your cart</p>
+          <button class="go_cart">Go to the cart</button>
+        </div>
+      </div>
+      <!-- <div class="cart_modal"></div>
+      <div class="cart_container">
+        <span class="material-symbols-outlined close_btn closes"> close </span>
+        <div class="cart_message">
+          <h3>This is the window to see what you have in your cart</h3>
+        </div>
+      </div> -->
     </main>
   </body>
   <footer>&copy;Yabee OatMeal</footer>

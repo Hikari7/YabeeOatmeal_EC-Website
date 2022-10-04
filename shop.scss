@@ -204,7 +204,7 @@ header {
 }
 
 .list {
-  margin-top: 24px;
+  margin: 24px 0;
   animation-name: animation_list;
   animation-duration: 1s;
   animation-iteration-count: 1;
@@ -244,28 +244,49 @@ img {
   font-size: 0.9rem;
 }
 
+.prices {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .price {
   margin-top: 24px;
-  font-size: 1.8rem;
+  font-size: 2.4rem;
 }
 
-.current_price {
+.amount_value {
   margin-top: 24px;
-  color: red;
   font-size: 1.8rem;
-  position: relative;
-}
-.current_price::before {
-  content: "$12.9";
-  font-size: 0.9rem;
-  text-decoration: line-through;
-  color: #333;
-  position: absolute;
-  left: 8.6em;
-  top: 30%;
+  margin: 0 auto;
 }
 
-.cart {
+.amount_decrease,
+.amount_increase {
+  cursor: pointer;
+}
+
+.amount {
+  margin: 16px;
+}
+
+// .current_price {
+//   margin-top: 24px;
+//   color: red;
+//   font-size: 1.8rem;
+//   position: relative;
+// }
+// .current_price::before {
+//   content: "$12.9";
+//   font-size: 0.9rem;
+//   text-decoration: line-through;
+//   color: #333;
+//   position: absolute;
+//   left: 8.6em;
+//   top: 30%;
+// }
+
+.add_cart {
   text-align: center;
   display: block;
   margin: 16px auto;
@@ -329,6 +350,7 @@ img {
     height: 270px;
   }
 }
+
 //footer
 footer {
   text-align: center;
@@ -337,6 +359,27 @@ footer {
 }
 
 //JavaScript-------------------------------------------
+
+.cart_icon {
+  position: relative;
+  cursor: pointer;
+}
+
+.cartIcon_amount {
+  position: absolute;
+  top: -20px;
+  font-size: 24px;
+  font-weight: bold;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: salmon;
+  color: #fff;
+  line-height: 40px;
+  text-align: center;
+  cursor: pointer;
+  font-family: "PT Serif", serif;
+}
 
 .modal {
   position: fixed; //固定表示
@@ -352,7 +395,7 @@ footer {
   z-index: 3;
 }
 
-.show_mordal {
+.show_modal {
   opacity: 1;
 }
 
@@ -371,7 +414,7 @@ footer {
   opacity: 0;
   transform: translate(-50%, 50%);
   transition: opacity 0.7s;
-  z-index: 5;
+  z-index: 3;
 }
 
 .show_modal_container {
@@ -384,7 +427,7 @@ footer {
   right: 32px;
   transform: translate(-50%, 50%);
   font-size: 32px;
-  z-index: 10;
+  z-index: 3;
   cursor: pointer;
 }
 
@@ -394,10 +437,10 @@ footer {
   left: 50%;
   transform: translate(-50%, 50%);
   font-size: 2.4rem;
-
   p {
     font-size: 1.8rem;
   }
+  z-index: 3;
 }
 
 .go_cart {
@@ -414,48 +457,49 @@ footer {
 }
 
 //Cart
-.cart_mordal {
-  position: fixed; //固定表示
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  text-align: center;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.7s;
-  background-color: rgba(0, 0, 0, 0.6);
-  z-index: 3;
-}
+// .cart_modal {
+//   position: fixed; //固定表示
+//   top: 0;
+//   bottom: 0;
+//   right: 0;
+//   left: 0;
+//   text-align: center;
+//   visibility: hidden;
+//   pointer-events: none;
+//   transition: opacity 0.7s;
+//   background-color: rgba(0, 0, 0, 0.6);
+//   z-index: 3;
+// }
 
-.show_cart_mordal {
-  opacity: 1;
-}
+// .show_cart_modal {
+//   display: block;
+// }
 
-.cart_container {
-  opacity: 0;
-  position: absolute;
-  width: 700px;
-  height: 500px;
-  background-color: #fff;
-  top: 10%;
-  right: 50%;
-  left: 50%;
-  transform: translate(-50%, 50%);
-  transition: opacity 0.7s;
-  z-index: 5;
-}
+// .cart_container {
+//   visibility: hidden;
+//   position: absolute;
+//   width: 700px;
+//   height: 500px;
+//   background-color: #fff;
+//   top: 10%;
+//   right: 50%;
+//   left: 50%;
+//   transform: translate(-50%, 50%);
+//   transition: opacity 0.7s;
+//   z-index: 4;
+// }
 
-.show_cart_container {
-  opacity: 1;
-}
+// .show_cart_container {
+//   display: block;
+//   z-index: 4;
+// }
 
-.cart_container .closes {
-  position: absolute;
-  top: 32px;
-  right: 32px;
-  transform: translate(-50%, 50%);
-  font-size: 32px;
-  z-index: 10;
-  cursor: pointer;
-}
+// .cart_container .closes {
+//   position: absolute;
+//   top: 32px;
+//   right: 32px;
+//   transform: translate(-50%, 50%);
+//   font-size: 32px;
+//   z-index: 9;
+//   cursor: pointer;
+// }
