@@ -155,10 +155,58 @@ function totalCost(product) {
   }
 }
 
+function displayCart() {
+  let cartItems = localStorage.getItem("productsInCart");
+  //localStrageからの情報を持ってくる。その時にはJSON形式からJS形式に変換する
+
+  let cartCost = localStorage.getItem("totalCost");
+  cartItems = JSON.parse(cartItems);
+
+  let productContainer = document.querySelector(".products");
+  //もしcartItemsかつこのページがexsistしていたら
+
+  console.log(cartItems);
+  if (cartItems && productContainer) {
+    //initially empty
+    productContainer.innerHTML = "";
+
+    //取得したオブジェクト達(カートに入っている内容)
+    Object.values(cartItems).map((item) => {
+      productContainer.innerHTML += `
+      <div class="products">
+        <span class="material-symbols-outlined close_btn"> 
+          close 
+        </span>
+        <img src="./imgs/jocelyn-morales-GuJ8KO4LywI-unsplash.jpg">
+        <span>${item.name}</span>
+      </div>
+      <div class="product_price ">$${item.price}</div>
+      <div class="product_quantity"> 
+        <span class="amount">-</span>
+        <span>${item.inCart}</span>
+        <span class="amount">+</span>
+      <div class="total">
+      $${item.inCart * item.price},00</div>
+      </div>
+      `;
+    });
+
+    productContainer.innerHTML += `
+    <div class="basketTotalContainer">
+      <h4 class="basketTotalTitle>
+        Basket Total
+      </h4>
+      <h4 class="basketTotal">
+        $${cartCost},00
+      </h4>
+    </div>`;
+  }
+}
+
 //Local Stargeに保存された情報をカートの表示にも保存させる(1回呼び出されないとinvokeされないので、下の方に関数呼び出す)
 onLoadCartNumbers();
-
-
+//ページをリロードした時、wheneverこのfunctionを呼びたい
+displayCart();
 
 //Cart--------------------------------------------------
 

@@ -241,7 +241,7 @@ img {
 .list li {
   text-align: left;
   font-family: "Roboto", sans-serif;
-  font-size: 0.9rem;
+  font-size: 1.1rem;
 }
 
 .prices {
@@ -255,20 +255,20 @@ img {
   font-size: 2.4rem;
 }
 
-.amount_value {
-  margin-top: 24px;
-  font-size: 1.8rem;
-  margin: 0 auto;
-}
+// .amount_value {
+//   margin-top: 24px;
+//   font-size: 1.8rem;
+//   margin: 0 auto;
+// }
 
-.amount_decrease,
-.amount_increase {
-  cursor: pointer;
-}
+// .amount_decrease,
+// .amount_increase {
+//   cursor: pointer;
+// }
 
-.amount {
-  margin: 16px;
-}
+// .amount {
+//   margin: 16px;
+// }
 
 // .current_price {
 //   margin-top: 24px;
@@ -323,6 +323,10 @@ img {
     width: 85%;
   }
 
+  .produact_container {
+    width: 85%;
+  }
+
   .wrapper {
     display: flex;
   }
@@ -342,7 +346,11 @@ img {
 }
 @include desktop() {
   .container {
-    width: 95%;
+    width: 85%;
+  }
+
+  .produact_container {
+    width: 50%;
   }
 
   img {
@@ -454,6 +462,78 @@ footer {
   border-radius: 10px;
   cursor: pointer;
   z-index: 10;
+}
+
+//================Cart page============================================
+
+.product_container {
+  width: 100%;
+  margin: 56px auto;
+  justify-content: space-around;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 56px;
+ 
+}
+
+.product_header {
+  width: 100%;
+  // max-width: 50%;
+  display: flex;
+  justify-content: flex-start;
+  border-bottom: 3px solid lightgrey;
+  margin: 0 auto;
+  font-size: 1.6rem;
+}
+
+.product_title {
+  width: 45%;
+  justify-content: center;
+  display: flex;
+}
+
+.product_price {
+  width: 15%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+}
+
+.product_quantity {
+  width: 35%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product_total {
+  width: 15%;
+  max-width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.products {
+  width: 55%;
+  flex-wrap: wrap;
+  display: flex;
+  // flex-flow: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 0;
+
+  img {
+    width: 100px;
+    height: 100px;
+    margin: 0;
+  }
+
+  .close_btn {
+    margin-top: 36px;
+    font-size: 1.5rem;
+  }
 }
 
 //Cart
