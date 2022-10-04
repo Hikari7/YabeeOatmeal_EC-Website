@@ -43,7 +43,9 @@
               <li><a href="./index.html">Home</a></li>
               <!-- <li><a href="./shop.html">Shop</a></li> -->
               <li>
-                <span class="material-symbols-outlined"> shopping_cart </span>
+                <span class="material-symbols-outlined shopping_cart">
+                  shopping_cart
+                </span>
               </li>
             </ul>
           </nav>
@@ -57,7 +59,9 @@
             <li><a href="./index.html">Feature</a></li>
             <!-- <li><a href="#shop">Shop</a></li> -->
             <li>
-              <a class="material-symbols-outlined"> shopping_cart </a>
+              <a class="material-symbols-outlined shopping_cart">
+                shopping_cart
+              </a>
             </li>
           </ul>
         </nav>
@@ -111,6 +115,7 @@
           <p class="price">$9.99</p>
           <button class="cart" id="buy">Add to Cart</button>
         </div>
+
         <div class="modal"></div>
         <div class="modal_container">
           <span class="material-symbols-outlined close_btn closes">
@@ -122,9 +127,22 @@
             <button class="go_cart">Go to the cart</button>
           </div>
         </div>
+
+        <div class="cart_mordal"></div>
+        <div class="cart_container">
+          <span class="material-symbols-outlined close_btn closes">
+            close
+          </span>
+          <div class="cart_message">
+            <h3>This is the window to see what you have in your cart</h3>
+          </div>
+        </div>
       </div>
     </main>
   </body>
   <footer>&copy;Yabee OatMeal</footer>
   <script src="main.js"></script>
 </html>
+
+<!-- ここのカート用のモーダルを追加すると、追加用のばつボタンが効かなくなってしまうので、 -->
+<!-- forEachあたりをいじらないといけない気がします -->
