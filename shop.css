@@ -105,6 +105,7 @@ header .overlay.show li:nth-child(3) {
   transition-delay: 0.4s;
 }
 header .overlay.show li:nth-child(4) {
+  margin-top: 52px;
   transition-delay: 0.5s;
 }
 header .overlay.show li {

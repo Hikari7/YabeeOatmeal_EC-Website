@@ -133,6 +133,7 @@ header {
     transition-delay: 0.4s;
   }
   .overlay.show li:nth-child(4) {
+    margin-top: 52px;
     transition-delay: 0.5s;
   }
 
@@ -255,37 +256,6 @@ img {
   font-size: 2.4rem;
 }
 
-// .amount_value {
-//   margin-top: 24px;
-//   font-size: 1.8rem;
-//   margin: 0 auto;
-// }
-
-// .amount_decrease,
-// .amount_increase {
-//   cursor: pointer;
-// }
-
-// .amount {
-//   margin: 16px;
-// }
-
-// .current_price {
-//   margin-top: 24px;
-//   color: red;
-//   font-size: 1.8rem;
-//   position: relative;
-// }
-// .current_price::before {
-//   content: "$12.9";
-//   font-size: 0.9rem;
-//   text-decoration: line-through;
-//   color: #333;
-//   position: absolute;
-//   left: 8.6em;
-//   top: 30%;
-// }
-
 .add_cart {
   text-align: center;
   display: block;
@@ -407,7 +377,6 @@ footer {
   opacity: 1;
 }
 
-
 .modal_container {
   position: absolute;
   width: 700px;
@@ -488,7 +457,6 @@ footer {
   width: 45%;
   justify-content: center;
   display: flex;
-
 }
 
 .product_price {
