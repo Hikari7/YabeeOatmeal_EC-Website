@@ -57,7 +57,7 @@ for (let i = 0; i < addBtns.length; i++) {
 
     //itemをクリックした数ぶんcartNumbersが呼ばれる, 引数にproductsの配列を渡すことでクリックされた商品がわかる
     cartNumbers(products[i]);
-    cancelItem(products[i]);
+    // cancelItem(products[i]);
     totalCost(products[i]);
   });
 }
@@ -99,7 +99,6 @@ function cartNumbers(product) {
 
 //どのアイテムをクリックしたか判断していく
 function setItems(product) {
-  console.log("My product is", product);
 
   //Cartに入ったproductを取得する(これがないと他のボタンを押しても更新がされない),JSON形式で表示されるので、JavaScirptに変える
   let cartItems = localStorage.getItem("productsInCart");
@@ -130,18 +129,13 @@ function setItems(product) {
   localStorage.setItem("productsInCart", JSON.stringify(cartItems));
 }
 
-function deleteItem() {
-  // let selectedItem = products[i];
-  // let cancelItem = products;
-  // console.log(cancelItem);
-}
-
 function totalCost(product) {
+  console.log(product.price);
   let cartCost = localStorage.getItem("totalCost");
-
+  
   // console.log("MY CARTCOST IS", cartCost);
   // console.log(typeof cartCost);
-
+  
   if (cartCost != null) {
     //typeが文字列だったので数字になおす
     cartCost = parseInt(cartCost);
@@ -158,6 +152,7 @@ function displayCart() {
   //localStrageからの情報を持ってくる。その時にはJSON形式からJS形式に変換する
 
   let cartCost = localStorage.getItem("totalCost");
+
   cartItems = JSON.parse(cartItems);
 
   let productContainer = document.querySelector(".products");
@@ -211,13 +206,16 @@ displayCart();
 const cancels = document.querySelectorAll(".cancel");
 
 for (let i = 0; i < cancels.length; i++) {
-  cancels[i].addEventListener("click", () => {
-    // console.log(cancels[i]);
-    deleteItem();
-  });
+  const cancelBtn = cancels[i];
+  cancelBtn.addEventListener("click", cancelItems);
 }
 
-// const pluses = ;
+function cancelItems(e) {
+  console.log(e.target);
+  const targetItem = e.target;
+  targetItem.parentNode.remove();
+}
+
 const minus = document.querySelectorAll(".minus");
 
 function selectQuantity(item) {
