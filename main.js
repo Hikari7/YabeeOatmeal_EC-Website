@@ -10,7 +10,6 @@ const modal = document.querySelector(".modal");
 const modalBody = document.querySelector(".modal_container");
 
 open.addEventListener("click", () => {
-  console.log("aaa");
   overlay.classList.add("show");
 });
 
@@ -18,22 +17,11 @@ close.addEventListener("click", () => {
   overlay.classList.remove("show");
 });
 
-//modal
-
-// addBtns.forEach((addBtn) => {
-//   addBtn.addEventListener("click", () => {
-//     modal.classList.add("show_modal");
-//     modalBody.classList.add("show_modal_container");
-//   });
-// });
-
 //content of the modal
 const closes = document.querySelectorAll(".closes");
-// const goCart = document.querySelector(".go_cart");
 
 closes.forEach((close) => {
   close.addEventListener("click", () => {
-    console.log("close");
     modal.classList.remove("show_modal");
     modalBody.classList.remove("show_modal_container");
   });
@@ -46,16 +34,19 @@ let products = [
     name: "Sugee Oat Meal",
     price: 15,
     inCart: 0,
+    tag: "sugee.png",
   },
   {
     name: "Yabee Oat Meal",
     price: 10,
     inCart: 0,
+    tag: "yabee.jpg",
   },
   {
     name: "Umee Oat Meal",
     price: 20,
     inCart: 0,
+    tag: "umee.png",
   },
 ];
 
@@ -66,6 +57,7 @@ for (let i = 0; i < addBtns.length; i++) {
 
     //itemをクリックした数ぶんcartNumbersが呼ばれる, 引数にproductsの配列を渡すことでクリックされた商品がわかる
     cartNumbers(products[i]);
+    // cancelItem(products[i]);
     totalCost(products[i]);
   });
 }
@@ -107,8 +99,6 @@ function cartNumbers(product) {
 
 //どのアイテムをクリックしたか判断していく
 function setItems(product) {
-  // console.log("My product is", product);
-
   //Cartに入ったproductを取得する(これがないと他のボタンを押しても更新がされない),JSON形式で表示されるので、JavaScirptに変える
   let cartItems = localStorage.getItem("productsInCart");
   cartItems = JSON.parse(cartItems);
@@ -139,6 +129,7 @@ function setItems(product) {
 }
 
 function totalCost(product) {
+  console.log(product.price);
   let cartCost = localStorage.getItem("totalCost");
 
   // console.log("MY CARTCOST IS", cartCost);
@@ -160,12 +151,13 @@ function displayCart() {
   //localStrageからの情報を持ってくる。その時にはJSON形式からJS形式に変換する
 
   let cartCost = localStorage.getItem("totalCost");
+
   cartItems = JSON.parse(cartItems);
 
   let productContainer = document.querySelector(".products");
   //もしcartItemsかつこのページがexsistしていたら
 
-  console.log(cartItems);
+  // console.log(cartItems);
   if (cartItems && productContainer) {
     //initially empty
     productContainer.innerHTML = "";
@@ -174,26 +166,28 @@ function displayCart() {
     Object.values(cartItems).map((item) => {
       productContainer.innerHTML += `
       <div class="products">
-        <span class="material-symbols-outlined close_btn"> 
-          close 
+        <span class="material-symbols-outlined cancel">
+         cancel
         </span>
-        <img src="./imgs/jocelyn-morales-GuJ8KO4LywI-unsplash.jpg">
-        <span>${item.name}</span>
-      </div>
-      <div class="product_price ">$${item.price}</div>
+        <img src="./imgs/${item.tag}">
+        <span class="product_name">${item.name}</span>
+   
+      <div class="product_price">$${item.price}</div>
       <div class="product_quantity"> 
-        <span class="amount">-</span>
-        <span>${item.inCart}</span>
-        <span class="amount">+</span>
+        <span class="minus">-</span>
+        <span class="amount_num">${item.inCart}</span>
+        <span class="plus">+</span>
+      </div>
       <div class="total">
       $${item.inCart * item.price},00</div>
+      </div>
       </div>
       `;
     });
 
     productContainer.innerHTML += `
     <div class="basketTotalContainer">
-      <h4 class="basketTotalTitle>
+      <h4 class="basketTotalTitle">
         Basket Total
       </h4>
       <h4 class="basketTotal">
@@ -201,35 +195,51 @@ function displayCart() {
       </h4>
     </div>`;
   }
+
+  return {
+    cartCost,
+  };
 }
+
+console.log(displayCart().cartCost);
 
 //Local Stargeに保存された情報をカートの表示にも保存させる(1回呼び出されないとinvokeされないので、下の方に関数呼び出す)
 onLoadCartNumbers();
 //ページをリロードした時、wheneverこのfunctionを呼びたい
 displayCart();
 
-//Cart--------------------------------------------------
+//Cancel
+const cancels = document.querySelectorAll(".cancel");
+for (let i = 0; i < cancels.length; i++) {
+  const cancelBtn = cancels[i];
+  cancelBtn.addEventListener("click", cancelItems);
+}
 
-// const modal = document.querySelector(".modal");
-// const seeCarts = document.querySelectorAll(".shopping_cart");
-// const cartModal = document.querySelector(".cart_modal");
-// const cartBody = document.querySelector(".cart_container");
+function cancelItems(e) {
+  console.log(e.target);
+  const targetItem = e.target;
+  targetItem.parentNode.remove();
 
-// goCart.addEventListener("click", () => {
-//   cartPage();
-// });
+  const targetTotal =
+    targetItem.nextSibling.nextSibling.nextSibling.nextElementSibling
+      .nextElementSibling.nextElementSibling.nextElementSibling;
+  console.log(displayCart().cartCost);
+}
 
-// seeCarts.forEach((seeCart) => {
-//   seeCart.addEventListener("click", () => {
-//     cartPage();
-//   });
-// });
+//plus and minus items
+const minus = document.querySelectorAll(".minus");
+function selectQuantity(item) {
+  document.querySelectorAll(".plus").forEach((plus) => {
+    plus.addEventListener("click", () => {
+      amount_num.text++;
+    });
+  });
 
-// function cartPage() {
-//   console.log("bruh"); //Function機能はしているね
-//   modal.classList.remove("show_modal");
-//   cartModal.classList.add("show_cart_modal");
-//   modalBody.classList.remove("show_modal_container");
-//   cartBody.classList.add("show_cart_container");
-//   console.log(cartModal);
-// }
+  document.querySelectorAll(".minus").forEach((minus) => {
+    minus.addEventListener("click", () => {
+      // amount_num.inCart--;
+    });
+  });
+}
+
+selectQuantity();
