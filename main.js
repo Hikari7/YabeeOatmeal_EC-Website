@@ -18,22 +18,12 @@ close.addEventListener("click", () => {
   overlay.classList.remove("show");
 });
 
-//modal
-
-// addBtns.forEach((addBtn) => {
-//   addBtn.addEventListener("click", () => {
-//     modal.classList.add("show_modal");
-//     modalBody.classList.add("show_modal_container");
-//   });
-// });
-
 //content of the modal
 const closes = document.querySelectorAll(".closes");
 // const goCart = document.querySelector(".go_cart");
 
 closes.forEach((close) => {
   close.addEventListener("click", () => {
-    console.log("close");
     modal.classList.remove("show_modal");
     modalBody.classList.remove("show_modal_container");
   });
@@ -63,7 +53,7 @@ for (let i = 0; i < addBtns.length; i++) {
   addBtns[i].addEventListener("click", () => {
     modal.classList.add("show_modal");
     modalBody.classList.add("show_modal_container");
-
+console.log(modalBody);
     //itemをクリックした数ぶんcartNumbersが呼ばれる, 引数にproductsの配列を渡すことでクリックされた商品がわかる
     cartNumbers(products[i]);
     totalCost(products[i]);
@@ -178,22 +168,24 @@ function displayCart() {
           close 
         </span>
         <img src="./imgs/jocelyn-morales-GuJ8KO4LywI-unsplash.jpg">
-        <span>${item.name}</span>
-      </div>
-      <div class="product_price ">$${item.price}</div>
+        <span class="product_name">${item.name}</span>
+   
+      <div class="product_price">$${item.price}</div>
       <div class="product_quantity"> 
         <span class="amount">-</span>
-        <span>${item.inCart}</span>
+        <span class="amount_num">${item.inCart}</span>
         <span class="amount">+</span>
+      </div>
       <div class="total">
       $${item.inCart * item.price},00</div>
+      </div>
       </div>
       `;
     });
 
     productContainer.innerHTML += `
     <div class="basketTotalContainer">
-      <h4 class="basketTotalTitle>
+      <h4 class="basketTotalTitle">
         Basket Total
       </h4>
       <h4 class="basketTotal">
@@ -208,28 +200,4 @@ onLoadCartNumbers();
 //ページをリロードした時、wheneverこのfunctionを呼びたい
 displayCart();
 
-//Cart--------------------------------------------------
 
-// const modal = document.querySelector(".modal");
-// const seeCarts = document.querySelectorAll(".shopping_cart");
-// const cartModal = document.querySelector(".cart_modal");
-// const cartBody = document.querySelector(".cart_container");
-
-// goCart.addEventListener("click", () => {
-//   cartPage();
-// });
-
-// seeCarts.forEach((seeCart) => {
-//   seeCart.addEventListener("click", () => {
-//     cartPage();
-//   });
-// });
-
-// function cartPage() {
-//   console.log("bruh"); //Function機能はしているね
-//   modal.classList.remove("show_modal");
-//   cartModal.classList.add("show_cart_modal");
-//   modalBody.classList.remove("show_modal_container");
-//   cartBody.classList.add("show_cart_container");
-//   console.log(cartModal);
-// }

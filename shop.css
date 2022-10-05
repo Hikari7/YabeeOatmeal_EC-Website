@@ -400,7 +400,8 @@ footer {
 }
 
 .product_container {
-  width: 100%;
+  font-size: 1rem;
+  max-width: 850px;
   margin: 56px auto;
   justify-content: space-around;
   background-color: #fff;
@@ -410,11 +411,13 @@ footer {
 
 .product_header {
   width: 100%;
+  max-width: 850px;
   display: flex;
   justify-content: flex-start;
   border-bottom: 3px solid lightgrey;
   margin: 0 auto;
   font-size: 1.6rem;
+  padding-bottom: 16px;
 }
 
 .product_title {
@@ -432,7 +435,7 @@ footer {
 }
 
 .product_quantity {
-  width: 35%;
+  width: 25%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -446,8 +449,15 @@ footer {
   justify-content: center;
 }
 
+.amount {
+  margin: 0 12px;
+  cursor: pointer;
+}
+
 .products {
-  width: 55%;
+  font-size: 1.4rem;
+  margin: 8px auto;
+  width: 100%;
   flex-wrap: wrap;
   display: flex;
   justify-content: space-around;
@@ -459,7 +469,20 @@ footer {
   height: 100px;
   margin: 0;
 }
+.products .product_name {
+  font-size: 1.1rem;
+}
 .products .close_btn {
-  margin-top: 36px;
   font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.basketTotalTitle {
+  margin-top: 56px;
+}
+
+.basketTotal {
+  margin-top: 12px;
+  font-size: 2.4rem;
+  text-align: center;
 }/*# sourceMappingURL=shop.css.map */
