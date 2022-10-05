@@ -99,7 +99,6 @@ function cartNumbers(product) {
 
 //どのアイテムをクリックしたか判断していく
 function setItems(product) {
-
   //Cartに入ったproductを取得する(これがないと他のボタンを押しても更新がされない),JSON形式で表示されるので、JavaScirptに変える
   let cartItems = localStorage.getItem("productsInCart");
   cartItems = JSON.parse(cartItems);
@@ -132,10 +131,10 @@ function setItems(product) {
 function totalCost(product) {
   console.log(product.price);
   let cartCost = localStorage.getItem("totalCost");
-  
+
   // console.log("MY CARTCOST IS", cartCost);
   // console.log(typeof cartCost);
-  
+
   if (cartCost != null) {
     //typeが文字列だったので数字になおす
     cartCost = parseInt(cartCost);
@@ -196,15 +195,21 @@ function displayCart() {
       </h4>
     </div>`;
   }
+
+  return {
+    cartCost,
+  };
 }
+
+console.log(displayCart().cartCost);
 
 //Local Stargeに保存された情報をカートの表示にも保存させる(1回呼び出されないとinvokeされないので、下の方に関数呼び出す)
 onLoadCartNumbers();
 //ページをリロードした時、wheneverこのfunctionを呼びたい
 displayCart();
 
+//Cancel
 const cancels = document.querySelectorAll(".cancel");
-
 for (let i = 0; i < cancels.length; i++) {
   const cancelBtn = cancels[i];
   cancelBtn.addEventListener("click", cancelItems);
@@ -214,10 +219,15 @@ function cancelItems(e) {
   console.log(e.target);
   const targetItem = e.target;
   targetItem.parentNode.remove();
+
+  const targetTotal =
+    targetItem.nextSibling.nextSibling.nextSibling.nextElementSibling
+      .nextElementSibling.nextElementSibling.nextElementSibling;
+  console.log(displayCart().cartCost);
 }
 
+//plus and minus items
 const minus = document.querySelectorAll(".minus");
-
 function selectQuantity(item) {
   document.querySelectorAll(".plus").forEach((plus) => {
     plus.addEventListener("click", () => {
