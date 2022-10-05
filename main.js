@@ -31,19 +31,19 @@ closes.forEach((close) => {
 
 let products = [
   {
-    name: "Sugee Oat Meal",
+    name: "sugeeoatmeal",
     price: 15,
     inCart: 0,
     tag: "sugee.png",
   },
   {
-    name: "Yabee Oat Meal",
+    name: "yabeeoatmeal",
     price: 10,
     inCart: 0,
     tag: "yabee.jpg",
   },
   {
-    name: "Umee Oat Meal",
+    name: "umeeoatmeal",
     price: 20,
     inCart: 0,
     tag: "umee.png",
@@ -195,36 +195,59 @@ function displayCart() {
       </h4>
     </div>`;
   }
-
-  return {
-    cartCost,
-  };
+  deleteBtns();
 }
 
-console.log(displayCart().cartCost);
+//Cancel
+function deleteBtns() {
+  const cancelBtns = document.querySelectorAll(".cancel");
+  let productName;
+  //localStrageからデータを取り出す(getItemにKeyの名前)
+  let productNumbers = localStorage.getItem("cartNumbers");
+  let cartItems = localStorage.getItem("productsInCart");
+  //cartItemsはJasonデータをそのまま引っ張ってきているのでJSの形に直す
+  cartItems = JSON.parse(cartItems);
+
+  let cartCost = localStorage.getItem("totalCost");
+
+  for (let i = 0; i < cancelBtns.length; i++) {
+    cancelBtns[i].addEventListener("click", () => {
+      productName = cancelBtns[
+        i
+      ].nextElementSibling.nextElementSibling.textContent
+        .trim()
+        .toLowerCase()
+        .split(" ")
+        .join("");
+
+      //productNumbersを更新する, cartNumbersがproductNumbersと等しくなるように
+      //localStarageからの値を取ってきて、それを更新している
+      //合計数の計算
+      localStorage.setItem(
+        "cartNumbers",
+        productNumbers - cartItems[productName].inCart
+      );
+
+      //合計値段の計算,
+      localStorage.setItem(
+        "totalCost",
+        cartCost - cartItems[productName].price * cartItems[productName].inCart
+      );
+
+      //localStrageからcartを消す
+      delete cartItems[productName];
+      //productInCartを更新
+      localStorage.setItem("productsInCart", JSON.stringify(cartItems));
+      displayCart();
+      onLoadCartNumbers();
+    });
+  }
+}
 
 //Local Stargeに保存された情報をカートの表示にも保存させる(1回呼び出されないとinvokeされないので、下の方に関数呼び出す)
 onLoadCartNumbers();
 //ページをリロードした時、wheneverこのfunctionを呼びたい
 displayCart();
-
-//Cancel
-const cancels = document.querySelectorAll(".cancel");
-for (let i = 0; i < cancels.length; i++) {
-  const cancelBtn = cancels[i];
-  cancelBtn.addEventListener("click", cancelItems);
-}
-
-function cancelItems(e) {
-  console.log(e.target);
-  const targetItem = e.target;
-  targetItem.parentNode.remove();
-
-  const targetTotal =
-    targetItem.nextSibling.nextSibling.nextSibling.nextElementSibling
-      .nextElementSibling.nextElementSibling.nextElementSibling;
-  console.log(displayCart().cartCost);
-}
 
 //plus and minus items
 const minus = document.querySelectorAll(".minus");
@@ -236,9 +259,7 @@ function selectQuantity(item) {
   });
 
   document.querySelectorAll(".minus").forEach((minus) => {
-    minus.addEventListener("click", () => {
-      // amount_num.inCart--;
-    });
+    minus.addEventListener("click", () => {});
   });
 }
 
