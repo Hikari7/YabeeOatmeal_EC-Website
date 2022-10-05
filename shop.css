@@ -450,7 +450,8 @@ footer {
   justify-content: center;
 }
 
-.amount {
+.plus,
+.minus {
   margin: 0 12px;
   cursor: pointer;
 }
@@ -473,9 +474,10 @@ footer {
 .products .product_name {
   font-size: 1.1rem;
 }
-.products .close_btn {
+.products .cancel {
   font-size: 1.5rem;
   cursor: pointer;
+  font-weight: 200;
 }
 
 .basketTotalTitle {

@@ -10,7 +10,6 @@ const modal = document.querySelector(".modal");
 const modalBody = document.querySelector(".modal_container");
 
 open.addEventListener("click", () => {
-  console.log("aaa");
   overlay.classList.add("show");
 });
 
@@ -20,7 +19,6 @@ close.addEventListener("click", () => {
 
 //content of the modal
 const closes = document.querySelectorAll(".closes");
-// const goCart = document.querySelector(".go_cart");
 
 closes.forEach((close) => {
   close.addEventListener("click", () => {
@@ -36,16 +34,19 @@ let products = [
     name: "Sugee Oat Meal",
     price: 15,
     inCart: 0,
+    tag: "sugee.png",
   },
   {
     name: "Yabee Oat Meal",
     price: 10,
     inCart: 0,
+    tag: "yabee.jpg",
   },
   {
     name: "Umee Oat Meal",
     price: 20,
     inCart: 0,
+    tag: "umee.png",
   },
 ];
 
@@ -53,9 +54,10 @@ for (let i = 0; i < addBtns.length; i++) {
   addBtns[i].addEventListener("click", () => {
     modal.classList.add("show_modal");
     modalBody.classList.add("show_modal_container");
-console.log(modalBody);
+
     //itemをクリックした数ぶんcartNumbersが呼ばれる, 引数にproductsの配列を渡すことでクリックされた商品がわかる
     cartNumbers(products[i]);
+    cancelItem(products[i]);
     totalCost(products[i]);
   });
 }
@@ -97,7 +99,7 @@ function cartNumbers(product) {
 
 //どのアイテムをクリックしたか判断していく
 function setItems(product) {
-  // console.log("My product is", product);
+  console.log("My product is", product);
 
   //Cartに入ったproductを取得する(これがないと他のボタンを押しても更新がされない),JSON形式で表示されるので、JavaScirptに変える
   let cartItems = localStorage.getItem("productsInCart");
@@ -128,6 +130,12 @@ function setItems(product) {
   localStorage.setItem("productsInCart", JSON.stringify(cartItems));
 }
 
+function deleteItem() {
+  // let selectedItem = products[i];
+  // let cancelItem = products;
+  // console.log(cancelItem);
+}
+
 function totalCost(product) {
   let cartCost = localStorage.getItem("totalCost");
 
@@ -155,7 +163,7 @@ function displayCart() {
   let productContainer = document.querySelector(".products");
   //もしcartItemsかつこのページがexsistしていたら
 
-  console.log(cartItems);
+  // console.log(cartItems);
   if (cartItems && productContainer) {
     //initially empty
     productContainer.innerHTML = "";
@@ -164,17 +172,17 @@ function displayCart() {
     Object.values(cartItems).map((item) => {
       productContainer.innerHTML += `
       <div class="products">
-        <span class="material-symbols-outlined close_btn"> 
-          close 
+        <span class="material-symbols-outlined cancel">
+         cancel
         </span>
-        <img src="./imgs/jocelyn-morales-GuJ8KO4LywI-unsplash.jpg">
+        <img src="./imgs/${item.tag}">
         <span class="product_name">${item.name}</span>
    
       <div class="product_price">$${item.price}</div>
       <div class="product_quantity"> 
-        <span class="amount">-</span>
+        <span class="minus">-</span>
         <span class="amount_num">${item.inCart}</span>
-        <span class="amount">+</span>
+        <span class="plus">+</span>
       </div>
       <div class="total">
       $${item.inCart * item.price},00</div>
@@ -200,3 +208,30 @@ onLoadCartNumbers();
 //ページをリロードした時、wheneverこのfunctionを呼びたい
 displayCart();
 
+const cancels = document.querySelectorAll(".cancel");
+
+for (let i = 0; i < cancels.length; i++) {
+  cancels[i].addEventListener("click", () => {
+    // console.log(cancels[i]);
+    deleteItem();
+  });
+}
+
+// const pluses = ;
+const minus = document.querySelectorAll(".minus");
+
+function selectQuantity(item) {
+  document.querySelectorAll(".plus").forEach((plus) => {
+    plus.addEventListener("click", () => {
+      amount_num.text++;
+    });
+  });
+
+  document.querySelectorAll(".minus").forEach((minus) => {
+    minus.addEventListener("click", () => {
+      // amount_num.inCart--;
+    });
+  });
+}
+
+selectQuantity();
