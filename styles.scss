@@ -146,6 +146,26 @@ header {
     margin-top: 10%;
   }
 
+  .cart_icon {
+    position: relative;
+    cursor: pointer;
+  }
+
+  .cartIcon_amount {
+    position: absolute;
+    top: -20px;
+    font-size: 24px;
+    font-weight: bold;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: salmon;
+    color: #fff;
+    line-height: 40px;
+    text-align: center;
+    cursor: pointer;
+    font-family: "PT Serif", serif;
+  }
   // --------------------------------------------------------
 
   .header_desktop {

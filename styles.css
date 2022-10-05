@@ -109,6 +109,25 @@ header .overlay.show li {
 header .overlay ul {
   margin-top: 10%;
 }
+header .cart_icon {
+  position: relative;
+  cursor: pointer;
+}
+header .cartIcon_amount {
+  position: absolute;
+  top: -20px;
+  font-size: 24px;
+  font-weight: bold;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: salmon;
+  color: #fff;
+  line-height: 40px;
+  text-align: center;
+  cursor: pointer;
+  font-family: "PT Serif", serif;
+}
 header .header_desktop {
   display: none;
 }
