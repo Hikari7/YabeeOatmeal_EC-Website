@@ -16,20 +16,26 @@ An Ecommerce website using JavaScript and the Local Storage.
 - CSS (SASS)
 - JavaScript
 
+
 ## Features
+
 
 The EC website was made with vanilla JavaScript and used the browser's local strage. Even if you change the quantity of the product in the cart, you can go to other pages and refresh the browser with holding the quantities.
 
+
 ## Challenging Part
 
+
 - Manipulating the local strage
-  Manipulating the local storage data and also needing to render them to the screen by DOM at the same time was quite difficult. 
-  I kept checking what node lists I have and adjusted between JSON data and JS object by `JSON.parse()` or `JSON.stringify()`. The experience of checking the console to debug efficiently all the time developed my debugging skills!
+
+  Manipulating the local storage data and also needing to render them to the screen by DOM at the same time was quite difficult.  I kept checking what node lists I have and adjusted between JSON data and JS object by `JSON.parse()` or `JSON.stringify()`. The experience of checking the console to debug efficiently all the time developed my debugging skills!
+
 
 
 - Accessing an element by DOM
-  I tried to access a product name element inside of the `addEventListener` to check what item the user click on. You can see how I used DOM such as `nextElementSibling` on the below codes.
-  A lot of elements needed to get so it was a good to deepen the DOM manipulation. Also, I learned the difference between Nodes and Elements so which also helps me to use DOM appropriate way.
+
+  I tried to access a product name element inside of the `addEventListener` to check what item the user click on.  You can see how I used DOM such as `nextElementSibling` on the below codes.  A lot of elements needed to get so it was a good to deepen the DOM manipulation. Also, I learned the difference between Nodes and Elements so which also helps me to use DOM appropriate way.
+
 
 
 ```javascript
