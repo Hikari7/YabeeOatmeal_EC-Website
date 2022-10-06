@@ -337,17 +337,6 @@ onLoadCartNumbers();
 //ページをリロードした時、wheneverこのfunctionを呼びたい
 displayCart();
 
-// const minus = document.querySelectorAll(".minus");
-// function manageQuantity(item) {
-//   document.querySelectorAll(".plus").forEach((plus) => {
-//     plus.addEventListener("click", () => {
-//       amount_num.text++;
-//     });
-//   });
 
-//   document.querySelectorAll(".minus").forEach((minus) => {
-//     minus.addEventListener("click", () => {});
-//   });
-// }
 
 //LocalStargeを関数内で都度更新しています
