@@ -1,20 +1,3 @@
-//Common
-
-$tablet: 700px;
-$desktop: 1024px;
-
-@mixin tablet {
-  @media (min-width: #{$tablet}) {
-    @content;
-  }
-}
-
-@mixin desktop {
-  @media (min-width: #{$desktop}) {
-    @content;
-  }
-}
-
 html {
   font: size 62.5%;
   scroll-behavior: smooth;
@@ -54,145 +37,121 @@ h2 {
 li {
   line-height: 1.4;
 }
-//header
 
 header {
   margin: 0 auto;
   padding: 16px;
-
-  .header_desktop {
+}
+header .header_desktop {
+  display: none;
+}
+header .header_phone {
+  text-align: right;
+}
+header .material-symbols-outlined {
+  font-size: 32px;
+}
+header .header_phone:hover {
+  cursor: pointer;
+}
+header .overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.7s;
+  background: rgba(255, 255, 255, 0.95);
+  z-index: 3;
+}
+header .overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+header .unshow {
+  opacity: 0;
+}
+header .overlay #close {
+  position: absolute;
+  top: 32px;
+  right: 32px;
+  font-size: 32px;
+  cursor: pointer;
+}
+header .overlay #close:hover {
+  color: #333;
+}
+header .overlay li {
+  padding-top: 12px;
+  font-size: 1.8rem;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.3s, transform 0.3s;
+}
+header .overlay li:hover {
+  color: #333;
+}
+header .overlay.show li:nth-child(1) {
+  transition-delay: 0.2s;
+}
+header .overlay.show li:nth-child(2) {
+  transition-delay: 0.3s;
+}
+header .overlay.show li:nth-child(3) {
+  transition-delay: 0.4s;
+}
+header .overlay.show li:nth-child(4) {
+  margin-top: 52px;
+  transition-delay: 0.5s;
+}
+header .overlay.show li {
+  opacity: 1;
+  transform: none;
+}
+header .overlay ul {
+  margin-top: 10%;
+}
+@media (min-width: 700px) {
+  header .header_phone {
     display: none;
   }
-
-  .header_phone {
-    text-align: right;
+  header .header_desktop {
+    width: 86%;
+    font-size: 1.4rem;
+    display: block;
+    margin: 12px auto;
   }
-  .material-symbols-outlined {
-    font-size: 32px;
-  }
-
-  .header_phone:hover {
-    cursor: pointer;
-  }
-
-  .overlay {
-    position: fixed; //固定表示
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    text-align: center;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.7s;
-    background: rgba(255, 255, 255, 0.95);
-    z-index: 3;
-  }
-
-  //showしたらoverlayがつけ外しされる
-  .overlay.show {
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  .unshow {
-    opacity: 0;
-  }
-
-  .overlay #close {
-    position: absolute;
-    top: 32px;
-    right: 32px;
-    font-size: 32px;
-    cursor: pointer;
-  }
-
-  .overlay #close:hover {
-    color: #333;
-  }
-
-  .overlay li {
+  header .header_desktop h1 {
     padding-top: 12px;
-    font-size: 1.8rem;
+  }
+  header .header_desktop nav {
+    display: flex;
+    justify-content: space-between;
+  }
+  header .header_desktop ul {
+    display: flex;
+  }
+  header .header_desktop li {
+    margin-right: 16px;
     cursor: pointer;
-    opacity: 0;
-    transform: translateY(16px);
-    transition: opacity 0.3s, transform 0.3s;
   }
-
-  .overlay li:hover {
-    color: #333;
+  header .header_desktop li:hover {
+    opacity: 0.5;
   }
-  .overlay.show li:nth-child(1) {
-    transition-delay: 0.2s;
-  }
-  .overlay.show li:nth-child(2) {
-    transition-delay: 0.3s;
-  }
-  .overlay.show li:nth-child(3) {
-    transition-delay: 0.4s;
-  }
-  .overlay.show li:nth-child(4) {
-    margin-top: 52px;
-    transition-delay: 0.5s;
-  }
-
-  .overlay.show li {
-    opacity: 1;
-    transform: none;
-  }
-
-  .overlay ul {
-    margin-top: 10%;
-  }
-
-  @include tablet {
-    .header_phone {
-      display: none;
-    }
-    .header_desktop {
-      width: 86%;
-      font-size: 1.4rem;
-      display: block;
-      margin: 12px auto;
-
-      h1 {
-        padding-top: 12px;
-      }
-
-      nav {
-        display: flex;
-        justify-content: space-between;
-      }
-
-      ul {
-        display: flex;
-      }
-
-      li {
-        margin-right: 16px;
-        cursor: pointer;
-      }
-
-      li:hover {
-        opacity: 0.5;
-      }
-
-      .title {
-        align-items: center;
-      }
-    }
-  }
-
-  @include desktop {
-    .header_desktop {
-      font-size: 1.4rem;
-      margin: 24px auto;
-    }
+  header .header_desktop .title {
+    align-items: center;
   }
 }
-
-//main
+@media (min-width: 1024px) {
+  header .header_desktop {
+    font-size: 1.4rem;
+    margin: 24px auto;
+  }
+}
 
 .container {
   width: 90%;
@@ -206,28 +165,39 @@ header {
 
 .list {
   margin: 24px 0;
-  animation-name: animation_list;
-  animation-duration: 1s;
-  animation-iteration-count: 1;
+  -webkit-animation-name: animation_list;
+          animation-name: animation_list;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+}
+
+@-webkit-keyframes animation_list {
+  from {
+    transform: translateY(10%);
+  }
+  to {
+    transform: translateY(0%);
+  }
 }
 
 @keyframes animation_list {
   from {
     transform: translateY(10%);
   }
-
   to {
     transform: translateY(0%);
   }
 }
-
 img {
   display: block;
   margin: 36px auto 0;
   width: 200px;
   height: 220px;
   border-radius: 10px;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   box-shadow: 0 20px 30px 0 rgba(0, 0, 0, 0.12), 0 2px 3px 0 rgba(0, 0, 0, 0.22);
 }
 
@@ -239,6 +209,7 @@ img {
   width: 80%;
   margin: 0 auto;
 }
+
 .list li {
   text-align: left;
   font-family: "Roboto", sans-serif;
@@ -273,70 +244,69 @@ img {
 .cart:hover {
   opacity: 0.5;
   transition: 0.5s;
-  animation-name: animation_cart;
-  animation-duration: 1s;
-  animation-iteration-count: 1;
+  -webkit-animation-name: animation_cart;
+          animation-name: animation_cart;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+}
+
+@-webkit-keyframes animation_cart {
+  from {
+    transform: translateY(20%);
+  }
+  to {
+    transform: translateY(0%);
+  }
 }
 
 @keyframes animation_cart {
   from {
     transform: translateY(20%);
   }
-
   to {
     transform: translateY(0%);
   }
 }
-
-@include tablet() {
+@media (min-width: 700px) {
   .container {
     width: 85%;
   }
-
   .produact_container {
     width: 85%;
   }
-
   .wrapper {
     display: flex;
   }
-
   h1 {
     font-size: 2.4rem;
   }
-
   h2 {
     font-size: 1.8rem;
   }
-
   img {
     width: 220px;
     height: 240px;
   }
 }
-@include desktop() {
+@media (min-width: 1024px) {
   .container {
     width: 85%;
   }
-
   .produact_container {
     width: 50%;
   }
-
   img {
     width: 250px;
     height: 270px;
   }
 }
-
-//footer
 footer {
   text-align: center;
   padding: 80px;
   font-size: 10px;
 }
-
-//JavaScript-------------------------------------------
 
 .cart_icon {
   position: relative;
@@ -360,7 +330,7 @@ footer {
 }
 
 .modal {
-  position: fixed; //固定表示
+  position: fixed;
   top: 0;
   bottom: 0;
   right: 0;
@@ -412,10 +382,10 @@ footer {
   left: 50%;
   transform: translate(-50%, 50%);
   font-size: 2.4rem;
-  p {
-    font-size: 1.8rem;
-  }
   z-index: 3;
+}
+.modal_message p {
+  font-size: 1.8rem;
 }
 
 .go_cart {
@@ -424,14 +394,12 @@ footer {
   display: block;
   margin: 16px auto;
   padding: 16px 24px;
-  background-color: #6a20926b;
+  background-color: rgba(106, 32, 146, 0.4196078431);
   color: #fff;
   border-radius: 10px;
   cursor: pointer;
   z-index: 10;
 }
-
-//================Cart page============================================
 
 .product_container {
   font-size: 1rem;
@@ -499,21 +467,19 @@ footer {
   justify-content: space-around;
   align-items: center;
   padding: 10px 0;
-
-  img {
-    width: 100px;
-    height: 100px;
-    margin: 0;
-  }
-
-  .product_name {
-    font-size: 1.1rem;
-  }
-  .cancel {
-    font-size: 1.5rem;
-    cursor: pointer;
-    font-weight: 200;
-  }
+}
+.products img {
+  width: 100px;
+  height: 100px;
+  margin: 0;
+}
+.products .product_name {
+  font-size: 1.1rem;
+}
+.products .cancel {
+  font-size: 1.5rem;
+  cursor: pointer;
+  font-weight: 200;
 }
 
 .basketTotalTitle {
@@ -524,4 +490,4 @@ footer {
   margin-top: 12px;
   font-size: 2.4rem;
   text-align: center;
-}
+}/*# sourceMappingURL=shop.css.map */
