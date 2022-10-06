@@ -71,7 +71,8 @@ function onLoadCartNumbers() {
   }
 }
 
-function cartNumbers(product) {
+//カートのアイコン
+function cartNumbers(product, action) {
   //products[i]のクリックされた[i]に対する関数
   // console.log("the product clicked", product);
 
@@ -83,15 +84,33 @@ function cartNumbers(product) {
   //文字列からintに変換する
   productNumbers = parseInt(productNumbers);
 
-  //データを保存
-  //if: productNumbersが存在していたら,localStrogeの数とカートの数を増やす
-  if (productNumbers) {
+  //minusボタン押した時をアップデート
+  let cartItems = localStorage.getItem("productsInCart");
+  cartItems = JSON.parse(cartItems);
+
+  //localStrageとアイコンを-1減らす。actionは下に書いた関数に渡す用の引数
+  if (action == "decrease") {
+    localStorage.setItem("cartNumbers", productNumbers - 1);
+    document.querySelector(".cartIcon_amount").textContent = productNumbers - 1;
+    //productがカートに追加された時
+  } else if (productNumbers) {
     localStorage.setItem("cartNumbers", productNumbers + 1);
     document.querySelector(".cartIcon_amount").textContent = productNumbers + 1;
+    //ページが最初にローディングされた時
   } else {
     localStorage.setItem("cartNumbers", 1);
     document.querySelector(".cartIcon_amount").textContent = 1;
   }
+
+  //データを保存
+  //if: productNumbersが存在していたら,localStrogeの数とカートの数を増やす
+  // if (productNumbers) {
+  //   localStorage.setItem("cartNumbers", productNumbers + 1);
+  //   document.querySelector(".cartIcon_amount").textContent = productNumbers + 1;
+  // } else {
+  //   localStorage.setItem("cartNumbers", 1);
+  //   document.querySelector(".cartIcon_amount").textContent = 1;
+  // }
 
   //setItemという関数にそのままproductを渡す
   setItems(product);
@@ -128,14 +147,18 @@ function setItems(product) {
   localStorage.setItem("productsInCart", JSON.stringify(cartItems));
 }
 
-function totalCost(product) {
+function totalCost(product, action) {
   console.log(product.price);
   let cartCost = localStorage.getItem("totalCost");
 
+  if (action == "decrease") {
+    cartCost = parseInt(cartCost);
+    localStorage.setItem("totalCost", cartCost - product.price);
+  }
+
   // console.log("MY CARTCOST IS", cartCost);
   // console.log(typeof cartCost);
-
-  if (cartCost != null) {
+  else if (cartCost != null) {
     //typeが文字列だったので数字になおす
     cartCost = parseInt(cartCost);
     //setItemすると、localStrageのApplicationに保存されるよ、お決まり文句みたいな形
@@ -175,7 +198,8 @@ function displayCart() {
       <div class="product_price">$${item.price}</div>
       <div class="product_quantity"> 
         <span class="minus">-</span>
-        <span class="amount_num">${item.inCart}</span>
+        <span class="
+        ">${item.inCart}</span>
         <span class="plus">+</span>
       </div>
       <div class="total">
@@ -196,6 +220,7 @@ function displayCart() {
     </div>`;
   }
   deleteBtns();
+  manageQuantity();
 }
 
 //Cancel
@@ -222,7 +247,7 @@ function deleteBtns() {
 
       //productNumbersを更新する, cartNumbersがproductNumbersと等しくなるように
       //localStarageからの値を取ってきて、それを更新している
-      //合計数の計算
+      //合計数の計算(cartNumbersの引数から操作)
       localStorage.setItem(
         "cartNumbers",
         productNumbers - cartItems[productName].inCart
@@ -244,23 +269,66 @@ function deleteBtns() {
   }
 }
 
+//plus and minus items
+function manageQuantity() {
+  let minusBtns = document.querySelectorAll(".minus");
+  let plusBtns = document.querySelectorAll(".plus");
+  let cartItems = localStorage.getItem("productsInCart");
+  cartItems = JSON.parse(cartItems);
+  let currentQuantity = 0;
+  let currentProduct = 0;
+  // console.log(cartItems);
+  for (let i = 0; i < minusBtns.length; i++) {
+    minusBtns[i].addEventListener("click", () => {
+      // console.log(minusBtns[i].nextSibling);
+      //quantityの文字をそのまま取得したい
+      currentQuantity = minusBtns[i].nextElementSibling.textContent;
+      // console.log(currentQuantity);
+      currentProduct = minusBtns[
+        i
+      ].parentElement.previousElementSibling.previousElementSibling.textContent
+        .toLowerCase()
+        .split(" ")
+        .join("")
+        .trim();
+
+      //curtItemsの数を１減らす
+      if (cartItems[currentProduct].inCart > 1) {
+        cartItems[currentProduct].inCart -= 1;
+
+        //カートのアイコンの数字
+        cartNumbers(cartItems[currentProduct], "decrease");
+        totalCost(cartItems[currentProduct], "decrease");
+        //JSON化してアップデートする
+        localStorage.setItem("productsInCart", JSON.stringify(cartItems));
+        displayCart();
+      }
+    });
+  }
+
+  for (let i = 0; i < plusBtns.length; i++) {
+    plusBtns[i].addEventListener("click", () => {
+      console.log("plus btn");
+    });
+  }
+}
+
 //Local Stargeに保存された情報をカートの表示にも保存させる(1回呼び出されないとinvokeされないので、下の方に関数呼び出す)
 onLoadCartNumbers();
 //ページをリロードした時、wheneverこのfunctionを呼びたい
 displayCart();
 
-//plus and minus items
-const minus = document.querySelectorAll(".minus");
-function selectQuantity(item) {
-  document.querySelectorAll(".plus").forEach((plus) => {
-    plus.addEventListener("click", () => {
-      amount_num.text++;
-    });
-  });
+// const minus = document.querySelectorAll(".minus");
+// function manageQuantity(item) {
+//   document.querySelectorAll(".plus").forEach((plus) => {
+//     plus.addEventListener("click", () => {
+//       amount_num.text++;
+//     });
+//   });
 
-  document.querySelectorAll(".minus").forEach((minus) => {
-    minus.addEventListener("click", () => {});
-  });
-}
+//   document.querySelectorAll(".minus").forEach((minus) => {
+//     minus.addEventListener("click", () => {});
+//   });
+// }
 
-selectQuantity();
+//LocalStargeを関数内で都度更新しています
