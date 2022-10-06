@@ -92,7 +92,7 @@ function cartNumbers(product, action) {
   if (action == "decrease") {
     localStorage.setItem("cartNumbers", productNumbers - 1);
     document.querySelector(".cartIcon_amount").textContent = productNumbers - 1;
-    //productがカートに追加された時
+    //productがカートに追加された時 (つまりincrease)
   } else if (productNumbers) {
     localStorage.setItem("cartNumbers", productNumbers + 1);
     document.querySelector(".cartIcon_amount").textContent = productNumbers + 1;
@@ -158,6 +158,7 @@ function totalCost(product, action) {
 
   // console.log("MY CARTCOST IS", cartCost);
   // console.log(typeof cartCost);
+  //increaseの時もこれにあたる
   else if (cartCost != null) {
     //typeが文字列だったので数字になおす
     cartCost = parseInt(cartCost);
@@ -308,7 +309,25 @@ function manageQuantity() {
 
   for (let i = 0; i < plusBtns.length; i++) {
     plusBtns[i].addEventListener("click", () => {
-      console.log("plus btn");
+      
+      currentProduct = plusBtns[
+        i
+      ].parentElement.previousElementSibling.previousElementSibling.textContent
+        .toLowerCase()
+        .split(" ")
+        .join("")
+        .trim();
+
+      //curtItemsの数を１減らす
+      
+        cartItems[currentProduct].inCart += 1;
+
+        //カートのアイコンの数字
+        cartNumbers(cartItems[currentProduct]);
+        totalCost(cartItems[currentProduct]);
+        //JSON化してアップデートする
+        localStorage.setItem("productsInCart", JSON.stringify(cartItems));
+        displayCart();
     });
   }
 }
