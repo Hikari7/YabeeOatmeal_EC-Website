@@ -6,9 +6,9 @@ An Ecommerce website using JavaScript and the Local Storage.
 
 - [Oatmeal EC Website](http://oatmeal-ec-site.netlify.app)
 
-![The top image](./imgs/Screen%20Shot%202022-10-06%20at%2012.57.56%20PM.png)
-![The shop image](./imgs/Screen%20Shot%202022-10-06%20at%2011.56.14%20AM.png)
-![The cart image](./imgs/Screen%20Shot%202022-10-06%20at%2011.56.40%20AM.png)
+![The top image](./imgs/Screen%20Shot%202022-10-10%20at%208.04.33%20AM.png)
+![The shop image](./imgs/Screen%20Shot%202022-10-10%20at%208.04.44%20AM.png)
+![The cart image](./imgs/Screen%20Shot%202022-10-10%20at%208.05.11%20AM.png)
 
 ## Built With
 

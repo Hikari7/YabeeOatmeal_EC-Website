@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova&family=Junge&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
+    <title>Yabee Oat Meal</title>
+  </head>
+  <body>
+    <main>
+      <div class="top">
+        <header>
+          <div class="header_phone">
+            <!-- before it's opened -->
+            <div class="header_open">
+              <span class="material-symbols-outlined" id="open"> menu </span>
+            </div>
+            <!-- after it's opened -->
+            <div class="overlay">
+              <span class="material-symbols-outlined close_btn" id="close">
+                close
+              </span>
+              <nav>
+                <ul>
+                  <li><a href="./index.html">Home</a></li>
+                  <li class="cart_icon">
+                    <a href="./cart.html">
+                      <span class="material-symbols-outlined shopping_cart">
+                        shopping_cart</span
+                      ></a
+                    >
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+          <!-- header -->
+          <div class="header_desktop">
+            <nav>
+              <div class="title">Yabee</div>
+              <ul>
+                <li>Home</li>
+                <li><a href="./shop.html">Shop</a></li>
+                <li class="cart_icon">
+                  <a href="./cart.html">
+                    <span class="material-symbols-outlined shopping_cart">
+                      shopping_cart
+                    </span>
+                    <span class="cartIcon_amount">0</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </header>
+        <section class="hero">
+          <h1>Yabee Oat Meal</h1>
+          <div class="hero_img">
+            <img
+              src="./imgs/oatmeal-with-berries-and-almonds.jpeg"
+              alt="Main Oatmeal pic"
+            />
+          </div>
+        </section>
+      </div>
+      <section class="feature">
+        <div class="feature_container">
+          <div class="desc">
+            <h2>Organic Oat Meal</h2>
+            <p>
+              It is good to eat oatmeal every day considering its nutritional
+              profile and health benefits, including weight control and
+              heart-healthy effect. As a breakfast food and mid-meal snack,
+              oatmeal is potentially a better option than the majority of foods
+              available in the market.
+            </p>
+          </div>
+          <div class="desc_img">
+            <img src="./imgs/micheile-dot-com-vLHzjRNFbEQ-unsplash.jpg" />
+          </div>
+        </div>
+      </section>
+      <section class="testimonial">
+        <h2>Testimonial</h2>
+        <div class="test_3ppl">
+          <div class="tes_ppl">
+            <img src="./imgs/image-emily.jpg" />
+            <div class="test_card">
+              <p>
+                This cereal is our family favorite. The portions are just right,
+                along with raisin bread and juice and a cup of coffee. Will keep
+                you satisfied until lunch.
+              </p>
+              <h3>Jennie.F</h3>
+              <h4>nutritionist</h4>
+            </div>
+          </div>
+          <div class="tes_ppl">
+            <img src="./imgs/image-thomas.jpg" />
+            <div class="test_card">
+              <p>
+                This cereal is our family favorite. The portions are just right,
+                along with raisin bread and juice and a cup of coffee. Will keep
+                you satisfied until lunch.
+              </p>
+              <h3>Emily.R</h3>
+              <h4>Yoga Instrauctor</h4>
+            </div>
+          </div>
+          <div class="tes_ppl">
+            <img src="./imgs/image-jennie.jpg" />
+            <div class="test_card">
+              <p>
+                This cereal is our family favorite. The portions are just right,
+                along with raisin bread and juice and a cup of coffee. Will keep
+                you satisfied until lunch.
+              </p>
+              <h3>Thomas.S</h3>
+              <h4>Trainer</h4>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="shop" class="sale">
+        <div class="summer_sale">
+          <h2 class="stripe">Summer Sale</h2>
+          <h2 class="stripe">Up to 40% Off</h2>
+          <a href="./shop.html"><button class="more">Buy now</button></a>
+        </div>
+        <div class="sale_img">
+          <img src="./imgs/margarita-zueva-CY-OkOICA9o-unsplash.jpg" alt="" />
+        </div>
+      </section>
+    </main>
+  </body>
+  <footer>&copy;Yabee OatMeal</footer>
+  <script src="main.js"></script>
+</html>
