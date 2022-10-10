@@ -76,7 +76,7 @@ header {
   }
 
   .overlay {
-    position: fixed; //固定表示
+    position: fixed;
     top: 0;
     bottom: 0;
     right: 0;
@@ -89,7 +89,6 @@ header {
     z-index: 3;
   }
 
-  //showしたらoverlayがつけ外しされる
   .overlay.show {
     opacity: 1;
     pointer-events: auto;
@@ -487,7 +486,6 @@ footer {
 .minus {
   margin: 0 12px;
   cursor: pointer;
-  
 }
 
 .products {

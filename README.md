@@ -28,13 +28,13 @@ The EC website was made with vanilla JavaScript and used the browser's local str
 
 - Manipulating the local strage
 
-  Manipulating the local storage data and also rendering them to the screen by DOM at the same time were quite difficult.  I kept checking what node lists I have and converted between JSON data and JS object by `JSON.parse()` or `JSON.stringify()`. The experience of checking the console to debug efficiently developed my debugging skills!
+  Manipulating the local storage data and also rendering them to the screen by DOM at the same time was difficult.  I kept checking what node lists I had and converted between JSON data and JS object by `JSON.parse()` or `JSON.stringify()`. The experience of checking the console to debug efficiently developed my debugging skills!
 
 
 
 - Accessing an element by DOM
 
-  Getting a necessary element by DOM was quite tricky. For example, I tried to access a product name element which is inside of the `addEventListener` to check what item the user click on the delete button.  You can see how I used DOM such as `nextElementSibling` on the below codes.  A lot of elements were needed to get so it was good to deepen the DOM manipulation skills. Also, I learned the difference between Nodes and Elements so that helps me to use DOM appropriate way as well.
+  Getting a necessary element by DOM was tricky. For example, I tried to access a product name element which is inside of the `addEventListener` to check what item the user click on the delete button.  You can see how I used DOM such as `nextElementSibling` on the below codes.  A lot of elements were needed to get so it was good to deepen the DOM manipulation skills. Also, I learned the difference between Nodes and Elements so that helps me to use DOM appropriate way as well.
 
 
 
